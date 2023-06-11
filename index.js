@@ -13,7 +13,7 @@ process.env.TZ = "Asia/Jakarta";
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         const path = 'public/gambar';
-        fs.mkdirSync(path, {recursive: true});
+        fs.mkdirSync(path, { recursive: true });
         cb(null, path);
     },
     filename: (req, file, cb) => {
@@ -31,7 +31,7 @@ const fileFilter = (req, file, cb) => {
 
 // config
 
-app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('gambar'));
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('gambar'));
 
 
 app.use(bodyParser.json());
@@ -47,7 +47,7 @@ app.use(routes);
 // default 404
 // app.use(function(req, res, next) {
 //     res.status(404);
-  
+
 //     // respond with html page
 //     if (req.accepts('html')) {
 //       res.render('notfound.ejs', { url: req.url });
@@ -61,4 +61,4 @@ app.use(routes);
 //     res.type('txt').send('Not found');
 //   });
 console.log(new Date().toString());
-app.listen(3387, () => console.log('Server Up and Running...'));
+app.listen(3000, () => console.log('Server Up and Running...'));
