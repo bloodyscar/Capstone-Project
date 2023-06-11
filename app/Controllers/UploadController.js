@@ -73,7 +73,7 @@ class UploadController extends BaseController {
         }
         let gender = req.body.gender
 
-        let query = `${predictions.join(" ")} outfit women`
+        let query = `${predictions.join(" ")} outfit ${gender}`
         const API_KEY = 'AIzaSyAhTDe5rG09vVdYhfOxw88-_Zdkzk_UwEc';
 
         // Set up the API client
