@@ -4,7 +4,8 @@
   "description": "BanyuMili is a JavaScript library for creating web applications. It provides a simple and intuitive API that can help beginners and experienced developers alike to quickly create web applications with ease.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon run ./index"
   },
   "keywords": [
     "BanyuMili",

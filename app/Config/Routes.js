@@ -29,7 +29,8 @@ class Routes extends App {
     routes.post("/Data", this.user.saveData.bind(this.user));
     routes.post("/Register", this.regist.saveRegist.bind(this.regist));
     routes.post("/Login", this.login.cekLogin.bind(this.login));
-    routes.post("/uploadTest", this.upload.uploadKonten.bind(this.upload));
+    routes.post("/upload-file", this.upload.uploadFile.bind(this.upload));
+    routes.get("/best-today", this.upload.bestToday.bind(this.upload));
     routes.get("/getKonten", this.upload.getKonten.bind(this.upload));
     routes.post("/cariKonten", this.upload.cariKonten.bind(this.upload));
     return routes;
