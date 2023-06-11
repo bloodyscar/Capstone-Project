@@ -1,10 +1,10 @@
 const BaseController = require("./BaseController.js");
 const path = require('path');
-class UploadController extends BaseController{
+class UploadController extends BaseController {
 
     uploadKonten = async (req, res) => {
-        const {namaFoto, deskFoto, foto} = req.body;
-        if(req.file == null){
+        const { namaFoto, deskFoto, foto } = req.body;
+        if (req.file == null) {
             var pesan = {
                 messages: "Mohon upload foto produk"
             };
@@ -29,13 +29,13 @@ class UploadController extends BaseController{
     getKonten = async (req, res) => {
         let konten = await this.foto.getResult();
         let respon = {
-          "data":konten
+            "data": konten
         }
         res.status(200).json(respon);
     }
 
     cariKonten = async (req, res) => {
-        const {name} = req.body;
+        const { name } = req.body;
         let konten = await this.foto.whereRaw(`namaFoto like "%${name}%"`).getResult();
         let respon = {
             "data": konten
