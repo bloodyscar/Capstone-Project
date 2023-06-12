@@ -136,7 +136,6 @@ class UploadController extends BaseController {
             items.forEach((item, i) => {
                 // Create an object
                 var object = {
-                    nama: `Testing ${i}`,
                     photo: item.link
                 };
                 links.push(object);
