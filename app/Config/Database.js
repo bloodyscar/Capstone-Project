@@ -23,7 +23,7 @@ class Database extends Service {
       database: 'mahasiswa',
       username: 'root',
       password: '',
-      host: 'localhost',
+      host: '34.101.97.100',
       dialect: 'mysql'
     };
     super(options);
