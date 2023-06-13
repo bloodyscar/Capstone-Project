@@ -22,54 +22,49 @@ class AuthLogin extends BaseController {
             });
         }
 
-        var cekUsername = await this.user.where('username', username).getResult();
-        var response = {
-            status: 400,
-            response: cekUsername
-        }
-        res.status(200).json(response);
 
-        // this.user.where('username', username).getResult().then(
-        //     hasil => {
-        //         console.log(password);
-        //         console.log(hasil);
-        //         var cekPw = bcrypt.compareSync(password, hasil.password);
-        //         console.log(cekPw);
-        //         if (cekPw == true) {
-        //             var data = {
-        //                 username: hasil.username,
-        //                 logged_in: true,
-        //                 fullname: hasil.fullname,
-        //                 avatar: hasil.avatar,
-        //                 userid: hasil.id,
-        //                 role: hasil.role_id
-        //             };
-        //             var response = {
-        //                 status: 200,
-        //                 response: data
-        //             }
-        //             res.status(200).json(response);
-        //         } else {
-        //             var response = {
-        //                 status: 400,
-        //                 response: "wrong password"
-        //             }
-        //             res.status(400).json(response);
-        //         }
-        //     }
-        // ).catch((error) => {
-        //     var response = {
-        //         status: 400,
-        //         response: "Kok gagal login?",
-        //         message: error.message,
-        //         data: {
-        //             username: username,
-        //             password: password
-        //         }
-        //     }
-        //     res.status(400).json(response);
-        // }
-        // );
+
+        this.user.where('username', username).getResult().then(
+            hasil => {
+                console.log(password);
+                console.log(hasil);
+                var cekPw = bcrypt.compareSync(password, hasil.password);
+                console.log(cekPw);
+                if (cekPw == true) {
+                    var data = {
+                        username: hasil.username,
+                        logged_in: true,
+                        fullname: hasil.fullname,
+                        avatar: hasil.avatar,
+                        userid: hasil.id,
+                        role: hasil.role_id
+                    };
+                    var response = {
+                        status: 200,
+                        response: data
+                    }
+                    res.status(200).json(response);
+                } else {
+                    var response = {
+                        status: 400,
+                        response: "wrong password"
+                    }
+                    res.status(400).json(response);
+                }
+            }
+        ).catch((error) => {
+            var response = {
+                status: 400,
+                response: "Kok gagal login?",
+                message: error.message,
+                data: {
+                    username: username,
+                    password: password
+                }
+            }
+            res.status(400).json(response);
+        }
+        );
     }
 }
 
