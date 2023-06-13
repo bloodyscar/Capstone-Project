@@ -3,8 +3,8 @@ const BaseController = require("./BaseController.js");
 class AuthLogin extends BaseController {
     cekLogin = async (req, res) => {
         const {
-            password,
             username,
+            password,
         } = req.body;
         let rules = {
             username: {
@@ -53,7 +53,11 @@ class AuthLogin extends BaseController {
             var response = {
                 status: 400,
                 response: "Kok gagal login?",
-                message: error.message
+                message: error.message,
+                data: {
+                    username: username,
+                    password: password
+                }
             }
             res.status(400).json(response);
         }
