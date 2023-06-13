@@ -23,8 +23,9 @@ class Database extends Service {
       database: 'mahasiswa',
       username: 'root',
       password: 'AkunBangkit123',
-      host: '34.101.97.100',
-      dialect: 'mysql'
+      host: '127.0.0.1',
+      dialect: 'mysql',
+      port: '3306'
     };
     super(options);
   }
