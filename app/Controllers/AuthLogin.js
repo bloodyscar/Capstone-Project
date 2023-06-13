@@ -52,7 +52,8 @@ class AuthLogin extends BaseController {
         ).catch((error) => {
             var response = {
                 status: 400,
-                response: "Kok gagal login?"
+                response: "Kok gagal login?",
+                message: error
             }
             res.status(400).json(response);
         }
