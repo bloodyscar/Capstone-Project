@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const BaseController = require("./BaseController.js");
-class AuthRegister extends BaseController{
+class AuthRegister extends BaseController {
 
-    saveRegist=async (req, res) => {
-        const {username, password, email} = req.body;
+    saveRegist = async (req, res) => {
+        const { username, password, email } = req.body;
         const salt = await bcrypt.genSalt(10);
         const hashPass = await bcrypt.hash(password, salt);
         var regist = {
@@ -13,18 +13,18 @@ class AuthRegister extends BaseController{
         }
 
         var cekregist = this.user.save(regist);
-        if (cekregist  == false) {
+        if (cekregist == false) {
             var response = {
-                status:400,
+                status: 400,
                 messages: "Check again your data"
             }
             res.status(400).json(response);
         }
         else {
             var response = {
-                status:200,
-                messages: "Success",
-                data:regist
+                status: 200,
+                messages: "Create an account successfully",
+                data: regist
             }
             res.status(200).json(response);
         }
@@ -33,7 +33,7 @@ class AuthRegister extends BaseController{
 
     }
 
-    
+
 }
 
 
