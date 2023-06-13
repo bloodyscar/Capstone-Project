@@ -47,7 +47,7 @@ class AuthLogin extends BaseController {
                 } else {
                     var response = {
                         status: 400,
-                        response: "wrong password"
+                        response: "Wrong Password"
                     }
                     res.status(400).json(response);
                 }
@@ -55,7 +55,7 @@ class AuthLogin extends BaseController {
         ).catch((error) => {
             var response = {
                 status: 400,
-                response: "Kok gagal login?",
+                response: "Username Not Found",
                 message: error.message,
                 data: {
                     username: username,
