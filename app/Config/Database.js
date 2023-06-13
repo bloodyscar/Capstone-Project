@@ -22,7 +22,7 @@ class Database extends Service {
     const options = {
       database: 'mahasiswa',
       username: 'root',
-      password: '',
+      password: 'AkunBangkit123',
       host: '34.101.97.100',
       dialect: 'mysql'
     };
